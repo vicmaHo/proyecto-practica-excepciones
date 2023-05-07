@@ -11,14 +11,14 @@ public class InterfazPelicula extends javax.swing.JFrame {
         setLocationRelativeTo(null); // inicio la ventana en el centro de la pantalla
         
         
-        Page1 p1 = new Page1();
-        p1.setSize(610,340);
-        p1.setLocation(0,0);
+        // Page1 p1 = new Page1();
+        // p1.setSize(610,340);
+        // p1.setLocation(0,0);
         
-        contenido.removeAll();
-        contenido.add(p1, BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
+        // contenido.removeAll();
+        // contenido.add(p1, BorderLayout.CENTER);
+        // contenido.revalidate();
+        // contenido.repaint();
     }
 
 
@@ -43,18 +43,18 @@ public class InterfazPelicula extends javax.swing.JFrame {
         menu.setBackground(new java.awt.Color(109, 164, 161));
 
         btnFactura.setText("Factura");
-        btnFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacturaActionPerformed(evt);
-            }
-        });
+        // btnFactura.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         btnFacturaActionPerformed(evt);
+        //     }
+        // });
 
         btnAlquilar.setText("Alquilando");
-        btnAlquilar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlquilarActionPerformed(evt);
-            }
-        });
+        // btnAlquilar.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         btnAlquilarActionPerformed(evt);
+        //     }
+        // });
 
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
@@ -128,27 +128,28 @@ public class InterfazPelicula extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
-        Page2 p2 = new Page2();
-        p2.setSize(610,340);
-        p2.setLocation(0,0);
+    // private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
+    //     Page2 p2 = new Page2();
+    //     p2.setSize(610,340);
+    //     p2.setLocation(0,0);
         
-        contenido.removeAll();
-        contenido.add(p2, BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
-    }//GEN-LAST:event_btnFacturaActionPerformed
+    //     contenido.removeAll();
+    //     contenido.add(p2, BorderLayout.CENTER);
+    //     contenido.revalidate();
+    //     contenido.repaint();
+    //     System.out.println("factura presionado");
+    // }//GEN-LAST:event_btnFacturaActionPerformed
 
-    private void btnAlquilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlquilarActionPerformed
-        Page1 p1 = new Page1();
-        p1.setSize(610,340);
-        p1.setLocation(0,0);
+    // private void btnAlquilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlquilarActionPerformed
+    //     Page1 p1 = new Page1();
+    //     p1.setSize(610,340);
+    //     p1.setLocation(0,0);
         
-        contenido.removeAll();
-        contenido.add(p1, BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
-    }//GEN-LAST:event_btnAlquilarActionPerformed
+    //     contenido.removeAll();
+    //     contenido.add(p1, BorderLayout.CENTER);
+    //     contenido.revalidate();
+    //     contenido.repaint();
+    // }//GEN-LAST:event_btnAlquilarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,7 +190,7 @@ public class InterfazPelicula extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     public javax.swing.JButton btnAlquilar;
     public javax.swing.JButton btnFactura;
-    private javax.swing.JPanel contenido;
+    public javax.swing.JPanel contenido;
     private javax.swing.JPanel header;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JPanel menu;
