@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.AlquilerException;
+import exceptions.DescuentoException;
+
 public class Controlador implements ActionListener {
     private InterfazPelicula interfazPeli;
     private Page1 page1;
@@ -92,7 +95,7 @@ public class Controlador implements ActionListener {
      * a un formato que se almacena en una variable String que posteriormente es
      * agregada al textArea
      */
-    public void agregoInformacionAfactura() {
+    public void agregoInformacionAfactura(boolean descuento) {
         String informacion = "";
         for (Pelicula pelicula : model.getPeliculasSeleccionadas()) {
             informacion += "Nombre: " + pelicula.getNombre() + "| Descripcion: " + pelicula.getDescripcion() +
@@ -100,9 +103,28 @@ public class Controlador implements ActionListener {
             informacion += "\n";
         }
         informacion += "\nDuracion Total: " + model.duracionTotal() + "min\n";
-        informacion += "Precio Total: " + model.costoTotal() + "\n";
+        // Si el descuento es true, realiza est accion, de lo contraio no descuenta
+        if (descuento){
+            informacion += "Usted tiene un descuento de 5000!!\nPrecio Total: " + model.costoTotal() + "\n" + 
+            "Precio con descuento: " + (model.costoTotal()-5000) + "\n";
+        }else{
+            informacion += "Precio Total: " + model.costoTotal() + "\n";
+        }
+        
 
         page2.txtInformacionFactura.setText(informacion);
+    }
+
+    /* Verifica  si todas las peliculas son romanticas, para usar en una excepcion */
+    public boolean verificarRomanticas(){
+        int cantPeliculas = model.getPeliculasSeleccionadas().size();
+        int cantRomanticas = 0;
+        for (Pelicula pelicula : model.getPeliculasSeleccionadas()) {
+            if(pelicula.getGenero().toLowerCase().equals("romance")){
+                cantRomanticas += 1;
+            }
+        }
+        return cantPeliculas==cantRomanticas;
     }
 
     // Funciones de los botones
@@ -123,8 +145,33 @@ public class Controlador implements ActionListener {
 
         // Presiono el boton pagar, me manda a la pagina de la factura
         } else if (e.getSource() == page1.btnPagar) {
+            boolean descuento = false;
+            // Agrego las excepciones necesarias
+            try {
+                if(model.getPeliculasSeleccionadas().size() == 0){
+                    throw new AlquilerException("Agregue peliculas antes de pagar!!");
+                }
+                else if(model.getPeliculasSeleccionadas().size() > 10){
+                    throw new AlquilerException("No se pueden alquilar mas de 10 peliculas");
+                }else if(verificarRomanticas()){
+                    throw new AlquilerException("No todas las peliculas pueden ser romanticas");
+                }else if(model.getPeliculasSeleccionadas().size() == 7){
+                    throw new DescuentoException("Por el alquiler de 7 peliculas tendra un descuento!!");
+                }
+                
+            } catch (AlquilerException alqE) {
+                JOptionPane.showMessageDialog(interfazPeli, "Ocurrió un error: " + alqE.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                model.elimiarDatos();
+                agregarPeliculasALista();
+                return;
+            // para poder agregar la excepcion de descuento he creado otra que realiza algo difernte, en este caso
+            // transformar una varible boolena
+            } catch (DescuentoException alqE){
+                JOptionPane.showMessageDialog(interfazPeli, "Descuento: " + alqE.getMessage(), "Descuento", JOptionPane.INFORMATION_MESSAGE);
+                descuento = true;
+            }
             // Agrego la informacion al txtArea de la factura
-            agregoInformacionAfactura();
+            agregoInformacionAfactura(descuento);
             // Cambio a la pagina de la factura
             page2.setSize(610, 340);
             page2.setLocation(0, 0);

@@ -12,11 +12,29 @@ public class Modelo {
         Pelicula pelicula1 = new Pelicula("Duro de matar", "Luchar hasta la muerte","Accion", 135);
         peliculas.add(pelicula1);
 
-        Pelicula pelicula2 = new Pelicula("Whiplash", "Intensa, emocionante, impactante.","Drama", 123);
+        Pelicula pelicula2 = new Pelicula("Whiplash", "Intensa, emocionante, impactante.","Drama", 95);
         peliculas.add(pelicula2);
 
-        Pelicula pelicula3 = new Pelicula("Masacre en texas", "Mucho gore","Terror", 145);
+        Pelicula pelicula3 = new Pelicula("Masacre en texas", "Mucho gore","Drama", 90);
         peliculas.add(pelicula3);
+        
+        Pelicula pelicula4 = new Pelicula("A la deriva", "Un huracan devastador","Romance", 96);
+        peliculas.add(pelicula4);
+
+        Pelicula pelicula5 = new Pelicula("A dos metros de ti", "Una enfermedad prohibe todo","Romance", 117);
+        peliculas.add(pelicula5);
+
+        Pelicula pelicula6 = new Pelicula("Kimi no na wa", "Cambiando de cuerpo","Romance", 112);
+        peliculas.add(pelicula6);
+
+        Pelicula pelicula7 = new Pelicula("Interestelar", "Un viaje muy largo","Drama", 169);
+        peliculas.add(pelicula7);
+
+        Pelicula pelicula8 = new Pelicula("El camino hacia el dorado", "Una ciudad de oro","Accion", 89);
+        peliculas.add(pelicula8);
+
+        Pelicula pelicula9 = new Pelicula("Avatar", "Explorando","Accion", 189);
+        peliculas.add(pelicula9);
     }
     public ArrayList<Pelicula> getPeliculas(){
         return peliculas;

@@ -26,3 +26,4 @@ Se deben generar las siguientes excepciones (mensaje no es válido, tiene que se
 1. Para trabajar con JFrame traidos de netBeans y a los que se les agrego un absolute layout es necesario trabajar con una libreria especial
 2. Agregué lo que serán las vistas por el momento
 3. Se implemento toda la funcionalidad de la interfaz haciendo uso de un patron MVC muy basico
+4. se agregaron las excepciones que se piden y tambien se agregaron más peliculas de prueba
