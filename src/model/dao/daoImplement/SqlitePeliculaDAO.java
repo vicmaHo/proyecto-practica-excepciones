@@ -1,16 +1,11 @@
 package model.dao.daoImplement;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.naming.spi.DirStateFactory.Result;
-
-import org.xml.sax.SAXException;
 
 import exceptions.DAOException;
 import model.Pelicula;
@@ -27,8 +22,10 @@ public class SqlitePeliculaDAO implements PeliculaDAO {
     final String GETALL = "SELECT nombre, descripcion, genero, duracion FROM peliculas";
     final String GETONE = "SELECT nombre, descripcion, genero, duracion FROM peliculas WHERE nombre=?";
 
+    // Atributo de conexion que es enviado al constructor posteriormente
     private Connection conn;
 
+    // Constructor
     public SqlitePeliculaDAO(Connection conn) {
         this.conn = conn;
     }
@@ -185,29 +182,31 @@ public class SqlitePeliculaDAO implements PeliculaDAO {
         return p;
     }
 
-    public static void main(String[] args) throws SQLException {
-        String url = "jdbc:sqlite:bd/bdpeliculas.db";
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url);
-            PeliculaDAO dao = new SqlitePeliculaDAO(conn);
-            Pelicula pelicula = null;
-            pelicula = dao.obtener("Interestelar");
-            pelicula.mostrarInformacion();
+    // Pruebas de funcionamiento
 
-            // List<Pelicula> peliculas = dao.obtenerTodos();
-            // for (Pelicula pelicula : peliculas) {
-            // System.out.println(pelicula.getNombre());
-            // }
+    // public static void main(String[] args) throws SQLException {
+    //     String url = "jdbc:sqlite:bd/bdpeliculas.db";
+    //     Connection conn = null;
+    //     try {
+    //         conn = DriverManager.getConnection(url);
+    //         PeliculaDAO dao = new SqlitePeliculaDAO(conn);
+    //         Pelicula pelicula = null;
+    //         pelicula = dao.obtener("Interestelar");
+    //         pelicula.mostrarInformacion();
 
-        } catch (DAOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } finally {
-            if (conn != null) {
-                conn.close();
-            }
-        }
-    }
+    //         // List<Pelicula> peliculas = dao.obtenerTodos();
+    //         // for (Pelicula pelicula : peliculas) {
+    //         // System.out.println(pelicula.getNombre());
+    //         // }
+
+    //     } catch (DAOException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     } finally {
+    //         if (conn != null) {
+    //             conn.close();
+    //         }
+    //     }
+    // }
 
 }
