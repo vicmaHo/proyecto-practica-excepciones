@@ -179,7 +179,6 @@ public class Controlador implements ActionListener {
             interfazPeli.contenido.add(page2, BorderLayout.CENTER);
             interfazPeli.contenido.revalidate();
             interfazPeli.contenido.repaint();
-
         }
         // Presiono el boton salir, sale de la pagina de la factura y va a la pagina inicial. Primero 
         // muestra un mensaje y despues elimina los datos de las peliculas seleccionadas y limpia la lista

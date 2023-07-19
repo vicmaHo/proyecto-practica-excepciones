@@ -11,7 +11,6 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Modelo model = new Modelo();
-        model.mostrarPeliculas(); // muestro en consola la informacion de las peliculas disponibles para comprobar que se estan agregando
         InterfazPelicula interfazPelicula = new InterfazPelicula();
         Page1 page1 = new Page1();
         Page2 page2 = new Page2();
