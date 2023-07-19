@@ -29,4 +29,4 @@ Se deben generar las siguientes excepciones (mensaje no es válido, tiene que se
 3. Se implemento toda la funcionalidad de la interfaz haciendo uso de un patron MVC muy basico
 4. se agregaron las excepciones que se piden y tambien se agregaron más peliculas de prueba
 5. Se agrega patron DAO para tener un almacenamiento persistente, se agrega la libreria para manejar SQLite
-6. Se agrega una base de datos SQLite
+6. Se agrega una base de datos SQLite, el programa solo esta habilitado para consulta de datos
